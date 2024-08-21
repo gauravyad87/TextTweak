@@ -14,6 +14,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
+// Log the environment variables for debugging
+console.log('API_KEY:', process.env.API_KEY || 'API_KEY not set');
+console.log('PROMPT:', process.env.PROMPT || 'PROMPT not set');
+
 app.post('/correct-text', async (req, res) => {
     const { text } = req.body;
     const apiKey = process.env.API_KEY;
